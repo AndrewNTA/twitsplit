@@ -12,8 +12,25 @@
 <body>
   <div class="container">
     <h1 class="text-center pt-4">TWIT_SPLIT</h1>
+    <div class="row pt-5 pb-5">
+      <form id="chatForm" class="form-inline col-12">
+        <input type="text" class="form-control col-md-10 col-sm-12" id="messageInput" name="msg"
+          placeholder="Enter your message" />
+        <button type="submit" class="btn btn-primary col-md-2">Submit</button>
+      </form>
+      <div id="errorMessage" class="w-100"></div>
+    </div>
+
+    <div class="show-message">
+      <button id="btnClearMsg" class="btn btn-danger">
+        Clear all message
+      </button>
+      <h3 class="mt-3">All messages:</h3>
+      <div id="listMessages"></div>
+    </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.8/uuid.min.js"></script>
   <script src="src/utils.js"></script>
   <script src="src/index.js"></script>
 </body>
