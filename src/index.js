@@ -1,3 +1,5 @@
+import chunkMessage from './utils';
+
 document.getElementById("chatForm").addEventListener("submit", saveMessage);
 document
   .getElementById("btnClearMsg")

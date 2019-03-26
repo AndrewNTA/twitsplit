@@ -99,3 +99,5 @@ function forecastNumberDigitsOfMaxSplitMsg(lengthMsg) {
     return 0;
   }
 }
+
+export default chunkMessage;
