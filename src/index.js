@@ -1,4 +1,4 @@
-import chunkMessage from './utils';
+const chunkMessage = require('./utils');
 
 document.getElementById("chatForm").addEventListener("submit", saveMessage);
 document
@@ -18,9 +18,7 @@ function saveMessage(e) {
   if (chunkedMessages && chunkedMessages.error) {
     document.getElementById("chatForm").reset();
     document.getElementById("errorMessage").innerHTML =
-      '<div class="alert alert-danger w-100 mt-2">' +
-      chunkedMessages.error +
-      "</div>";
+      `<div class="alert alert-danger w-100 mt-2">${chunkedMessages.error}</div>`;
   } else {
     const allMsg = chunkedMessages.map(m => {
       return {

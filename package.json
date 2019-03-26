@@ -5,11 +5,13 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
+    "test": "jest",
     "build": "parcel build index.html"
   },
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "7.2.0",
+    "jest": "^24.5.0",
     "parcel-bundler": "^1.6.1"
   },
   "author": "anhtuannguyen",

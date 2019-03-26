@@ -118,13 +118,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"src/utils.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
 function chunkMessage(msg) {
   var lengthMsg = msg.length;
 
@@ -132,8 +125,19 @@ function chunkMessage(msg) {
     // Does not split this message
     return [msg];
   } else {
-    // Handle to split this message
+    // Check message contains a span of non- whitespace characters longer than 50 characters
+    var subMessages = msg.split(" ");
+
+    for (var i = 0; i < subMessages.length; i++) {
+      if (subMessages[i].length > 50) {
+        return {
+          error: "Message contains a span of non- whitespace characters longer than 50 characters"
+        };
+      }
+    } // Handle to split this message
     // Forecast the number of digits of the max section will be split
+
+
     var forecastNumber = forecastNumberDigitsOfMaxSplitMsg(lengthMsg);
 
     if (!forecastNumber) {
@@ -145,9 +149,9 @@ function chunkMessage(msg) {
 
     var spaceIndexArr = [];
 
-    for (var i = 0; i < lengthMsg; i++) {
-      if (msg[i] === " ") {
-        spaceIndexArr.push(i);
+    for (var _i = 0; _i < lengthMsg; _i++) {
+      if (msg[_i] === " ") {
+        spaceIndexArr.push(_i);
       }
     }
 
@@ -247,8 +251,7 @@ function forecastNumberDigitsOfMaxSplitMsg(lengthMsg) {
   }
 }
 
-var _default = chunkMessage;
-exports.default = _default;
+module.exports = chunkMessage;
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -277,7 +280,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64101" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52910" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -4,6 +4,16 @@ function chunkMessage(msg) {
     // Does not split this message
     return [msg];
   } else {
+    // Check message contains a span of non- whitespace characters longer than 50 characters
+    const subMessages = msg.split(" ");
+    for (let i = 0; i < subMessages.length; i++) {
+      if (subMessages[i].length > 50) {
+        return {
+          error:
+            "Message contains a span of non- whitespace characters longer than 50 characters"
+        };
+      }
+    }
     // Handle to split this message
     // Forecast the number of digits of the max section will be split
     let forecastNumber = forecastNumberDigitsOfMaxSplitMsg(lengthMsg);
@@ -100,4 +110,4 @@ function forecastNumberDigitsOfMaxSplitMsg(lengthMsg) {
   }
 }
 
-export default chunkMessage;
+module.exports = chunkMessage;
